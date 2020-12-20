@@ -1,0 +1,18 @@
+site_name: AI Scientist Guide
+theme:
+    name: 'material'
+    palette:
+        primary: 'red'
+
+nav:
+    - Introduction: index.md
+    - Pytorch: pytorch.md
+
+repo_name: mapattacker/ai-scientist
+repo_url: https://github.com/mapattacker/ai-scientist
+
+markdown_extensions:
+    - codehilite
+    - pymdownx.emoji:
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
