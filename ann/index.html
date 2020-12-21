@@ -388,7 +388,7 @@
 </tr>
 </tbody>
 </table>
-<p><img alt="" src="https://github.com/mapattacker/ai-scientist/blob/master/images/learning-rate.png?raw=true" style="width:500px" /></p>
+<p><img alt="" src="https://github.com/mapattacker/ai-scientist/blob/master/images/learning-rate.png?raw=true" style="width:450px" /></p>
 <p>Because of memory limitations, we cannot feed the entire training data to the network at one go, but divide them into batches. Given a total training sample size of 400, and a <strong>batch size</strong> of 4, we will require 400/4 = 100 <strong>iterations</strong> to complete one <strong>epoch</strong> which is the completion of training all sample sizes in a loop.</p>
 <p>Multiple <strong>epochs</strong> are required to reduce the loss to a minimal.</p>
 <table>
@@ -400,16 +400,16 @@
 </thead>
 <tbody>
 <tr>
+<td><strong>Iteration</strong></td>
+<td>one forward/backward pass</td>
+</tr>
+<tr>
 <td><strong>Batch Size</strong></td>
-<td>a subsample of the training data, in one forward/backward pass</td>
+<td>a subsample of the training data, in one forward/backward pass (1 iteration)</td>
 </tr>
 <tr>
 <td><strong>Epoch</strong></td>
-<td>one forward/backward pass for ALL training samples</td>
-</tr>
-<tr>
-<td><strong>Iteration</strong></td>
-<td>one forward/backward pass</td>
+<td>one forward/backward pass for ALL training samples (many iterations)</td>
 </tr>
 </tbody>
 </table>
