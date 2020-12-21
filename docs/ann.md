@@ -6,7 +6,7 @@ A perceptron is the simplest unit of a neural network. The input neurons first w
 
 A deep neural network simply represents a neural network with many hidden layers between the input and output layers. The architecture of the hidden layers can be very complex, like CNN and LSTM. 
 
-![](https://github.com/mapattacker/ai-scientist/blob/master/images/ann.png?raw=true){: style=width:500px"}
+![](https://github.com/mapattacker/ai-scientist/blob/master/images/ann.png?raw=true){: style="width:500px"}
 
 ## Activation Function
 
@@ -32,7 +32,7 @@ __Gradient descent__ is the process of descending through the gradient, i.e. adj
 
 __Learning Rate__ (lr) is the most important parameter to obtain the minimum loss. Too large a lr can cause the model to converge too quickly to a suboptimal solution, whereas a lr that is too small can cause the training process to take too long.
 
-![](https://github.com/mapattacker/ai-scientist/blob/master/images/learning-rate.png?raw=true)
+![](https://github.com/mapattacker/ai-scientist/blob/master/images/learning-rate.png?raw=true){: style="width:500px"}
 
 | Term | Desc |
 |-|-|
