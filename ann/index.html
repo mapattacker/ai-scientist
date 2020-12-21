@@ -14,7 +14,7 @@
     
     
       
-        <title>Pytorch - AI Scientist Guide</title>
+        <title>Artificial Neural Networks - AI Scientist Guide</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pytorch" class="md-skip">
+        <a href="#artificial-neural-network" class="md-skip">
           Skip to content
         </a>
       
@@ -91,7 +91,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Pytorch
+              Artificial Neural Networks
             
           </span>
         </div>
@@ -201,18 +201,6 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../ann/" class="md-nav__link">
-      Artificial Neural Networks
-    </a>
-  </li>
-
-    
-      
-      
-      
-
   
 
 
@@ -224,12 +212,12 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Pytorch
+        Artificial Neural Networks
         <span class="md-nav__icon md-icon"></span>
       </label>
     
     <a href="./" class="md-nav__link md-nav__link--active">
-      Pytorch
+      Artificial Neural Networks
     </a>
     
       
@@ -246,15 +234,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tensors" class="md-nav__link">
-    Tensors
+  <a href="#activation-function" class="md-nav__link">
+    Activation Function
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#gpu" class="md-nav__link">
-    GPU
+  <a href="#backpropagation" class="md-nav__link">
+    Backpropagation
   </a>
   
 </li>
@@ -263,6 +251,18 @@
   
 </nav>
     
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../pytorch/" class="md-nav__link">
+      Pytorch
+    </a>
   </li>
 
     
@@ -290,15 +290,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tensors" class="md-nav__link">
-    Tensors
+  <a href="#activation-function" class="md-nav__link">
+    Activation Function
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#gpu" class="md-nav__link">
-    GPU
+  <a href="#backpropagation" class="md-nav__link">
+    Backpropagation
   </a>
   
 </li>
@@ -315,184 +315,77 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/mapattacker/ai-scientist/edit/master/docs/pytorch.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/mapattacker/ai-scientist/edit/master/docs/ann.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="pytorch">Pytorch</h1>
-<p><a href="https://pytorch.org/">Pytorch</a> is likely the most popular neural network framework given its ease of use compared to Tensorflow, and having more options then the high level framework Keras. It is developed by Facebook's AI Research lab.</p>
-<h2 id="tensors">Tensors</h2>
-<p>Tensors are used in place of <code>numpy</code> in Pytorch. This allows faster processing using GPUs.</p>
-<p>If as use <code>torch.as_tensor</code> or <code>torch.tensor</code>, it will infer the datatype from the original array and assign it as such.</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># convert array/list to pytorch tensor, retains a link to the array</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
-<span class="c1"># convert array to tensor, no linkage, just a copy</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
-<span class="c1"># check datatype</span>
-<span class="n">x</span><span class="o">.</span><span class="n">dtype</span>
-<span class="o">...</span><span class="n">torch</span><span class="o">.</span><span class="n">int32</span>
-</code></pre></div>
-
-
-<p>If we want to convert the tensor to specific datatypes, we can refer to the <a href="https://pytorch.org/docs/stable/tensors.html">table</a> below.</p>
+                <h1 id="artificial-neural-network">Artificial Neural Network</h1>
+<p>A perceptron is the simplest unit of a neural network. The input neurons first weights its inputs and then sums them up with a bias. An activation function is then applied, which produces the output for the neuron.</p>
+<p><img alt="" src="https://github.com/mapattacker/ai-scientist/blob/master/images/perceptron.png?raw=true" /></p>
+<p>A deep neural network simply represents a neural network with many hidden layers between the input and output layers. The architecture of the hidden layers can be very complex, like CNN and LSTM. </p>
+<p><img alt="" src="https://github.com/mapattacker/ai-scientist/blob/master/images/ann.png?raw=true" /></p>
+<h2 id="activation-function">Activation Function</h2>
+<p>An activation function tells a perception what outcome it should be. The function differs for input/hidden layers with output layers.</p>
+<p>For input/hidden layers, <strong>ReLu</strong> (Rectified Linear units) is very popular compared to the now mostly obsolete sigmoid &amp; tanh functions because it avoids the <strong>vanishing gradient problem</strong> and has faster convergence. However, it is susceptible to dead neurons. So variants like Leaky ReLu, MaxOut and other functions are created to address this.</p>
+<p>For the output layer, it depends on the type of learning we are trying to train.</p>
 <table>
 <thead>
 <tr>
-<th>Data type</th>
-<th>dtype</th>
-<th>CPU tensor</th>
-<th>GPU tensor</th>
-<th></th>
+<th>Output Type</th>
+<th>Function</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>32-bit floating point</td>
-<td>torch.float32 or torch.float</td>
-<td>torch.FloatTensor</td>
-<td>torch.cuda.FloatTensor</td>
-<td></td>
+<td>Binary Classification</td>
+<td><code>Sigmoid</code></td>
 </tr>
 <tr>
-<td>64-bit floating point</td>
-<td>torch.float64 or torch.double</td>
-<td>torch.DoubleTensor</td>
-<td>torch.cuda.DoubleTensor</td>
-<td></td>
+<td>Multi-Class Classification</td>
+<td><code>Softmax</code></td>
 </tr>
 <tr>
-<td>16-bit floating point 1</td>
-<td>torch.float16 or torch.half</td>
-<td>torch.HalfTensor</td>
-<td>torch.cuda.HalfTensor</td>
-<td></td>
-</tr>
-<tr>
-<td>16-bit floating point 2</td>
-<td>torch.bfloat16</td>
-<td>torch.BFloat16Tensor</td>
-<td>torch.cuda.BFloat16Tensor</td>
-<td></td>
-</tr>
-<tr>
-<td>32-bit complex</td>
-<td>torch.complex32</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>64-bit complex</td>
-<td>torch.complex64</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>128-bit complex</td>
-<td>torch.complex128 or torch.cdouble</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>8-bit integer (unsigned)</td>
-<td>torch.uint8</td>
-<td>torch.ByteTensor</td>
-<td>torch.cuda.ByteTensor</td>
-<td></td>
-</tr>
-<tr>
-<td>8-bit integer (signed)</td>
-<td>torch.int8</td>
-<td>torch.CharTensor</td>
-<td>torch.cuda.CharTensor</td>
-<td></td>
-</tr>
-<tr>
-<td>16-bit integer (signed)</td>
-<td>torch.int16 or torch.short</td>
-<td>torch.ShortTensor</td>
-<td>torch.cuda.ShortTensor</td>
-<td></td>
-</tr>
-<tr>
-<td>32-bit integer (signed)</td>
-<td>torch.int32 or torch.int</td>
-<td>torch.IntTensor</td>
-<td>torch.cuda.IntTensor</td>
-<td></td>
-</tr>
-<tr>
-<td>64-bit integer (signed)</td>
-<td>torch.int64 or torch.long</td>
-<td>torch.LongTensor</td>
-<td>torch.cuda.LongTensor</td>
-<td></td>
-</tr>
-<tr>
-<td>Boolean</td>
-<td>torch.bool</td>
-<td>torch.BoolTensor</td>
-<td>torch.cuda.BoolTensor</td>
-<td></td>
+<td>Regression</td>
+<td><code>Linear</code></td>
 </tr>
 </tbody>
 </table>
-<h2 id="gpu">GPU</h2>
-<p>Pytorch is able to use <a href="https://pytorch.org/docs/stable/notes/cuda.html">GPU</a> to accelerate its processing speed. </p>
-<p>We can set cuda by writing an if-else clause. Sometimes, just adding <code>cuda</code> will not work, but we have to specify the device id, i.e. <code>cuda:0</code></p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">torch</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;PyTorch Version:&#39;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
-
-<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cuda&#39;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;cuda&#39;</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of GPUs:&#39;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">device_count</span><span class="p">())</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Device properties:&#39;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">get_device_properties</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Device ID:&#39;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">current_device</span><span class="p">())</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Device Name:&#39;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">get_device_name</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
-</code></pre></div>
-
-
-<div class="codehilite"><pre><span></span><code>Number of GPUs: <span class="m">1</span>
-Device properties: _CudaDeviceProperties<span class="o">(</span><span class="nv">name</span><span class="o">=</span><span class="s1">&#39;Quadro P1000&#39;</span>, <span class="nv">major</span><span class="o">=</span><span class="m">6</span>, <span class="nv">minor</span><span class="o">=</span><span class="m">1</span>, <span class="nv">total_memory</span><span class="o">=</span>4040MB, <span class="nv">multi_processor_count</span><span class="o">=</span><span class="m">4</span><span class="o">)</span>
-Device ID: <span class="m">0</span>
-Device Name: Quadro P1000
-</code></pre></div>
-
-
-<p>We can set the model to run in GPU, ideally by placing the device variable <code>model.to(device)</code>.</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># check if using gpu</span>
-<span class="nb">next</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span><span class="o">.</span><span class="n">is_cuda</span>
-<span class="c1"># use gpu</span>
-<span class="n">model</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
-<span class="c1"># or</span>
-<span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-</code></pre></div>
-
-
-<p>We can do the same for the tensors, to specify them to use the GPU.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">])</span>
-<span class="c1"># check if using gpu</span>
-<span class="n">a</span><span class="o">.</span><span class="n">device</span>
-<span class="c1"># use gpu</span>
-<span class="n">a</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
-<span class="c1"># or</span>
-<span class="n">a</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-</code></pre></div>
-
-
-<p>Here's a more specify example on a train-test split dataset.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">33</span><span class="p">)</span>
-
-<span class="n">X_train</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-<span class="n">X_test</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-<span class="n">y_train</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-<span class="n">y_test</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-</code></pre></div>
+<h2 id="backpropagation">Backpropagation</h2>
+<p>Training a model is about minimising the loss, and to do that, we want to move in the negative direction of the derivative. <strong>Back-propagation</strong> is the process of calculating the derivatives. This is done by working backwards from the last layer to the first input layer.</p>
+<p><strong>Gradient descent</strong> is the process of descending through the gradient, i.e. adjusting the parameters of the model to go down through the <strong>loss function</strong>.</p>
+<p><strong>Learning Rate</strong> (lr) is the most important parameter to obtain the minimum loss. Too large a lr can cause the model to converge too quickly to a suboptimal solution, whereas a lr that is too small can cause the training process to take too long.</p>
+<p><img alt="" src="https://github.com/mapattacker/ai-scientist/blob/master/images/learning-rate.png?raw=true" /></p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Optimizer</td>
+<td>a learning algorithm, refers to the calculation of an error gradient or slope of error and “descent” refers to the moving down along that slope towards some minimum level of error.</td>
+</tr>
+<tr>
+<td>Learning Rate</td>
+<td>a hyperparameter from 0-1 to reach a minimum loss</td>
+</tr>
+<tr>
+<td>Batch Size</td>
+<td>a hyperparameter of gradient descent that controls the number of training samples to work through before the model’s internal parameters are updated.</td>
+</tr>
+<tr>
+<td>Epoch</td>
+<td>a hyperparameter of gradient descent that controls the number of complete passes through the training dataset.</td>
+</tr>
+<tr>
+<td>Loss Function</td>
+<td>a function used to calculate the loss</td>
+</tr>
+</tbody>
+</table>
                 
               
               
@@ -511,7 +404,7 @@ Device Name: Quadro P1000
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../ann/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href=".." class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -520,11 +413,25 @@ Device Name: Quadro P1000
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Artificial Neural Networks
+                Introduction
               </div>
             </div>
           </a>
         
+        
+          <a href="../pytorch/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Pytorch
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
         
       </nav>
     </div>
