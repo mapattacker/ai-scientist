@@ -6,6 +6,7 @@ theme:
 
 nav:
     - Introduction: index.md
+    - Artificial Neural Networks: ann.md
     - Pytorch: pytorch.md
 
 repo_name: mapattacker/ai-scientist
