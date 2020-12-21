@@ -324,7 +324,7 @@
 <p>A perceptron is the simplest unit of a neural network. The input neurons first weights its inputs and then sums them up with a bias. An activation function is then applied, which produces the output for the neuron.</p>
 <p><img alt="" src="https://github.com/mapattacker/ai-scientist/blob/master/images/perceptron.png?raw=true" /></p>
 <p>A deep neural network simply represents a neural network with many hidden layers between the input and output layers. The architecture of the hidden layers can be very complex, like CNN and LSTM. </p>
-<p><img _=";" align="center" alt="" src="https://github.com/mapattacker/ai-scientist/blob/master/images/ann.png?raw=true" style="width:500px" /></p>
+<p><img alt="" src="https://github.com/mapattacker/ai-scientist/blob/master/images/ann.png?raw=true" style="width:500px" /></p>
 <h2 id="activation-function">Activation Function</h2>
 <p>An activation function tells a perception what outcome it should be. The function differs for input/hidden layers with output layers.</p>
 <p>For input/hidden layers, <strong>ReLu</strong> (Rectified Linear units) is very popular compared to the now mostly obsolete sigmoid &amp; tanh functions because it avoids the <strong>vanishing gradient problem</strong> and has faster convergence. However, it is susceptible to dead neurons. So variants like Leaky ReLu, MaxOut and other functions are created to address this.</p>
@@ -355,7 +355,7 @@
 <p>Training a model is about minimising the loss, and to do that, we want to move in the negative direction of the derivative. <strong>Back-propagation</strong> is the process of calculating the derivatives. This is done by working backwards from the last layer to the first input layer.</p>
 <p><strong>Gradient descent</strong> is the process of descending through the gradient, i.e. adjusting the parameters of the model to go down through the <strong>loss function</strong>.</p>
 <p><strong>Learning Rate</strong> (lr) is the most important parameter to obtain the minimum loss. Too large a lr can cause the model to converge too quickly to a suboptimal solution, whereas a lr that is too small can cause the training process to take too long.</p>
-<p><img alt="" src="https://github.com/mapattacker/ai-scientist/blob/master/images/learning-rate.png?raw=true" /></p>
+<p><img alt="" src="https://github.com/mapattacker/ai-scientist/blob/master/images/learning-rate.png?raw=true" style="width:500px" /></p>
 <table>
 <thead>
 <tr>
