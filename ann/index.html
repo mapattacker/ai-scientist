@@ -322,7 +322,7 @@
                 
                 <h1 id="artificial-neural-network">Artificial Neural Network</h1>
 <p>A perceptron is the simplest unit of a neural network. The input neurons first weights its inputs and then sums them up with a bias. An activation function is then applied, which produces the output for the neuron.</p>
-<p><img alt="" src="https://github.com/mapattacker/ai-scientist/blob/master/images/perceptron.png?raw=true" style="width:500px;text-align:center" /></p>
+<p><img alt="" src="https://github.com/mapattacker/ai-scientist/blob/master/images/perceptron.png?raw=true" style="width:500px" /></p>
 <p>A deep neural network simply represents a neural network with many hidden layers between the input and output layers. The architecture of the hidden layers can be very complex, like CNN and LSTM. </p>
 <p><img alt="" src="https://github.com/mapattacker/ai-scientist/blob/master/images/ann.png?raw=true" style="width:500px" /></p>
 <h2 id="activation-function">Activation Function</h2>
@@ -353,9 +353,11 @@
 </table>
 <h2 id="backpropagation">Backpropagation</h2>
 <p>Training a model is about minimising the loss, and to do that, we want to move in the negative direction of the derivative. <strong>Back-propagation</strong> is the process of calculating the derivatives. This is done by working backwards from the last layer to the first input layer.</p>
-<p><strong>Gradient descent</strong> is the process of descending through the gradient, i.e. adjusting the parameters of the model to go down through the <strong>loss function</strong>.</p>
-<p><strong>Learning Rate</strong> (lr) is the most important parameter to obtain the minimum loss. Too large a lr can cause the model to converge too quickly to a suboptimal solution, whereas a lr that is too small can cause the training process to take too long.</p>
+<p><strong>Optimizers</strong> are learning algothrims used to change the weights of the neural network optimially to obtain the minimal loss. <strong>Gradient descent</strong> is the most classic of them, while the most widely used optimizer now is <strong>Adam</strong> (Adaptive Moment Estimation). More in this <a href="https://towardsdatascience.com/optimizers-for-training-neural-network-59450d71caf6">article</a>.</p>
+<p><strong>Loss Function</strong> is a function which we define as the  approximation for data loss. It is thus important to choose one that best represents the type of data and classification.</p>
+<p><strong>Learning Rate</strong> (lr) is the most important parameter to adjust when using an optimizer. Too large a lr can cause the model to be unable to find the minimal loss, whereas a lr that is too small can cause the training process to take too long.</p>
 <p><img alt="" src="https://github.com/mapattacker/ai-scientist/blob/master/images/learning-rate.png?raw=true" style="width:500px" /></p>
+<p>Aside the various terms used in model training of an ANN, we also need to know what is a batch size &amp; epoch. </p>
 <table>
 <thead>
 <tr>
@@ -365,24 +367,12 @@
 </thead>
 <tbody>
 <tr>
-<td>Optimizer</td>
-<td>a learning algorithm, refers to the calculation of an error gradient or slope of error and “descent” refers to the moving down along that slope towards some minimum level of error.</td>
-</tr>
-<tr>
-<td>Learning Rate</td>
-<td>a hyperparameter from 0-1 to reach a minimum loss</td>
-</tr>
-<tr>
 <td>Batch Size</td>
 <td>a hyperparameter of gradient descent that controls the number of training samples to work through before the model’s internal parameters are updated.</td>
 </tr>
 <tr>
 <td>Epoch</td>
 <td>a hyperparameter of gradient descent that controls the number of complete passes through the training dataset.</td>
-</tr>
-<tr>
-<td>Loss Function</td>
-<td>a function used to calculate the loss</td>
 </tr>
 </tbody>
 </table>
