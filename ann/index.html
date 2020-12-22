@@ -401,7 +401,7 @@
                 
                 
                 <h1 id="basics-of-neural-network">Basics of Neural Network</h1>
-<p>A <strong>perceptron</strong> is the simplest unit of a neural network. The input neurons first weights its inputs and then sums them up with a bias. An activation function is then applied, which produces the output for the neuron.</p>
+<p>A <strong>perceptron</strong> is the simplest unit of a neural network. The input neurons first <strong>weights</strong> its inputs and then sums them up with a constant, called <strong>bias</strong>. An activation function is then applied, which produces the output for the neuron.</p>
 <figure>
   <img src="https://github.com/mapattacker/ai-scientist/blob/master/images/perceptron.png?raw=true" width="500" />
   <figcaption>x1*w1 + x2*w2 + x3*w3 + bias = y</figcaption>
@@ -470,7 +470,7 @@
 </tbody>
 </table>
 <h3 id="loss-function">Loss Function</h3>
-<p>The loss function which we define as the approximation for data loss. It is thus important to choose one that best represents the type of data and learning. Below are some examples.</p>
+<p>The loss (or cost) function which we define as the approximation for data loss. It is thus important to choose one that best represents the type of data and learning. Below are some examples.</p>
 <table>
 <thead>
 <tr>
@@ -494,7 +494,7 @@
 </tbody>
 </table>
 <h3 id="learning-rate">Learning Rate</h3>
-<p>Learning Rate (lr) is the most important parameter to adjust when using an optimizer. Too large a lr can cause the model to be unable to find the minimal loss, whereas a lr that is too small can cause the training process to take too long.</p>
+<p>Learning Rate (lr), or step size is the most important parameter to adjust when using an optimizer. Too large a lr can cause the model to be unable to find the minimal loss, whereas a lr that is too small can cause the training process to take too long.</p>
 <figure>
   <img src="https://github.com/mapattacker/ai-scientist/blob/master/images/learning-rate.png?raw=true" width="450" />
   <figcaption>Using a large vs small learning rate to reach minimum loss</figcaption>
