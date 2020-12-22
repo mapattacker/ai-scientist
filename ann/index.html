@@ -248,6 +248,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#learning-rate" class="md-nav__link">
+    Learning Rate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#batch-size-epoch" class="md-nav__link">
     Batch Size &amp; Epoch
   </a>
@@ -318,6 +325,13 @@
         <li class="md-nav__item">
   <a href="#backpropagation" class="md-nav__link">
     Backpropagation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-rate" class="md-nav__link">
+    Learning Rate
   </a>
   
 </li>
@@ -403,15 +417,19 @@
 <td><strong>Loss Function</strong></td>
 <td>function which we define as the  approximation for data loss. It is thus important to choose one that best represents the type of data and learning</td>
 </tr>
-<tr>
-<td><strong>Learning Rate</strong></td>
-<td>(lr) is the most important parameter to adjust when using an optimizer. Too large a lr can cause the model to be unable to find the minimal loss, whereas a lr that is too small can cause the training process to take too long</td>
-</tr>
 </tbody>
 </table>
+<h2 id="learning-rate">Learning Rate</h2>
+<p>Learning Rate (lr) is the most important parameter to adjust when using an optimizer. Too large a lr can cause the model to be unable to find the minimal loss, whereas a lr that is too small can cause the training process to take too long.</p>
 <figure>
   <img src="https://github.com/mapattacker/ai-scientist/blob/master/images/learning-rate.png?raw=true" width="450" />
   <figcaption>Using a large vs small learning rate</figcaption>
+</figure>
+
+<p>To check if you are using a good learning rate, we can plot the loss over epoch. It should ideally drop gradually to a consistent rate over time.</p>
+<figure>
+  <img src="https://github.com/mapattacker/ai-scientist/blob/master/images/learning-rate2.png?raw=true" width="500" />
+  <figcaption>[Source](https://cs231n.github.io/neural-networks-3/)</figcaption>
 </figure>
 
 <h2 id="batch-size-epoch">Batch Size &amp; Epoch</h2>
