@@ -349,7 +349,7 @@
                 <h1 id="basics-of-neural-network">Basics of Neural Network</h1>
 <p>A <strong>perceptron</strong> is the simplest unit of a neural network. The input neurons first weights its inputs and then sums them up with a bias. An activation function is then applied, which produces the output for the neuron.</p>
 <p><img alt="" src="https://github.com/mapattacker/ai-scientist/blob/master/images/perceptron.png?raw=true" style="width:500px" /></p>
-<p>A <strong>deep neural network</strong> simply represents a neural network with many hidden layers between the input and output layers. The architecture of the hidden layers can be very complex, like CNN and LSTM. </p>
+<p>A <strong>deep neural network</strong> simply represents a neural network with many hidden layers between the input and output layers. The architecture of the hidden layers can be very complex, like CNN or LSTM. </p>
 <p><img alt="" src="https://github.com/mapattacker/ai-scientist/blob/master/images/ann.png?raw=true" style="width:500px" /></p>
 <h2 id="activation-function">Activation Function</h2>
 <p>An activation function tells a perception what outcome it should be. The function differs for input/hidden layers with output layers.</p>
@@ -394,7 +394,7 @@
 </tr>
 <tr>
 <td><strong>Loss Function</strong></td>
-<td>function which we define as the  approximation for data loss. It is thus important to choose one that best represents the type of data and classification</td>
+<td>function which we define as the  approximation for data loss. It is thus important to choose one that best represents the type of data and learning</td>
 </tr>
 <tr>
 <td><strong>Learning Rate</strong></td>
@@ -402,7 +402,11 @@
 </tr>
 </tbody>
 </table>
-<p><img alt="" src="https://github.com/mapattacker/ai-scientist/blob/master/images/learning-rate.png?raw=true" style="width:450px" /></p>
+<figure>
+  <img src="https://github.com/mapattacker/ai-scientist/blob/master/images/learning-rate.png?raw=true" width="450" />
+  <figcaption>Using a large vs small learning rate</figcaption>
+</figure>
+
 <h2 id="batch-size-epoch">Batch Size &amp; Epoch</h2>
 <p>Because of memory limitations, we cannot feed the entire training data to the network at one go, but divide them into batches. Given a total training sample size of 400, and a <strong>batch size</strong> of 4, we will require 400/4 = 100 <strong>iterations</strong> to complete one <strong>epoch</strong> which is the completion of training all sample sizes in a loop.</p>
 <p>Multiple <strong>epochs</strong> are required to reduce the loss to a minimal.</p>
