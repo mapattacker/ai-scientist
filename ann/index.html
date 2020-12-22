@@ -431,6 +431,32 @@
 <p>There are various essential terms that needs to be defined in an ANN during training.</p>
 <h2 id="optimizer">Optimizer</h2>
 <p>Optimizers are learning algothrims used to change the weights of the neural network optimially to obtain the minimal loss. <strong>Gradient descent</strong> is the most classic of them, while the most widely used optimizer now is <strong>Adam</strong> (Adaptive Moment Estimation). More in this <a href="https://towardsdatascience.com/optimizers-for-training-neural-network-59450d71caf6">article</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Optimizer</th>
+<th>Desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gradient Descent</td>
+<td>Most basic &amp; classic</td>
+</tr>
+<tr>
+<td>Adam</td>
+<td>Most popular &amp; the current best</td>
+</tr>
+<tr>
+<td>Rmsprop</td>
+<td>2nd most popular</td>
+</tr>
+<tr>
+<td>Adagrad</td>
+<td>Able to train for sparse data. Adaptive learning rate</td>
+</tr>
+</tbody>
+</table>
 <h2 id="loss-function">Loss Function</h2>
 <p>The loss function which we define as the approximation for data loss. It is thus important to choose one that best represents the type of data and learning. Below are some examples.</p>
 <table>
@@ -459,7 +485,7 @@
 <p>Learning Rate (lr) is the most important parameter to adjust when using an optimizer. Too large a lr can cause the model to be unable to find the minimal loss, whereas a lr that is too small can cause the training process to take too long.</p>
 <figure>
   <img src="https://github.com/mapattacker/ai-scientist/blob/master/images/learning-rate.png?raw=true" width="450" />
-  <figcaption>Using a large vs small learning rate</figcaption>
+  <figcaption>Using a large vs small learning rate to reach minimum loss</figcaption>
 </figure>
 
 <p>To check if you are using a good learning rate, we can plot the loss over epoch. It should ideally drop gradually to a consistent rate over time.</p>
