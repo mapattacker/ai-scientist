@@ -442,7 +442,7 @@
 <p>Backpropagation is a short form for "backward propagation of errors." Training a model is about minimising the loss, and to do that, fine-tuning the weights of a neural network based on the error rate obtained in the previous iteration. This is done by working backwards from the last layer to the first input layer.</p>
 <p>There are various essential terms that needs to be defined in an NN during training.</p>
 <h3 id="optimizer">Optimizer</h3>
-<p>Optimizers are learning algothrims used to change the weights of the neural network optimially to obtain the minimal loss. <strong>Gradient descent</strong> is the most classic of them, while the most widely used optimizer now is <strong>Adam</strong> (Adaptive Moment Estimation). More in this <a href="https://towardsdatascience.com/optimizers-for-training-neural-network-59450d71caf6">article</a>.</p>
+<p>Optimizers are learning algothrims used to change the weights &amp; biases of the neural network optimially to obtain the minimal loss. <strong>Gradient descent</strong> is the most classic of them, while the most widely used optimizer now is <strong>Adam</strong> (Adaptive Moment Estimation). More in this <a href="https://towardsdatascience.com/optimizers-for-training-neural-network-59450d71caf6">article</a>.</p>
 <table>
 <thead>
 <tr>
@@ -457,15 +457,15 @@
 </tr>
 <tr>
 <td>Adam</td>
-<td>Most popular &amp; the current best</td>
+<td>Most popular &amp; the current best. Adaptive learning using EWMA on 1st &amp; 2nd moments</td>
 </tr>
 <tr>
 <td>Rmsprop</td>
-<td>2nd most popular</td>
+<td>2nd most popular. EWMA on squared gradient adagrad</td>
 </tr>
 <tr>
 <td>Adagrad</td>
-<td>Able to train for sparse data. Adaptive learning rate</td>
+<td>Able to train for sparse data. Adaptive learning using squared gradient</td>
 </tr>
 </tbody>
 </table>

@@ -259,6 +259,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#data-loader" class="md-nav__link">
+    Data Loader
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -311,6 +318,13 @@
         <li class="md-nav__item">
   <a href="#gpu" class="md-nav__link">
     GPU
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-loader" class="md-nav__link">
+    Data Loader
   </a>
   
 </li>
@@ -475,6 +489,7 @@ Device Name: Quadro P1000
 </code></pre></div>
 
 
+<h2 id="data-loader">Data Loader</h2>
 <p>Here's a more specify example on a train-test split dataset.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">33</span><span class="p">)</span>
@@ -484,6 +499,9 @@ Device Name: Quadro P1000
 <span class="n">y_train</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
 <span class="n">y_test</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
 </code></pre></div>
+
+
+<p>Pytorch also have another dataset libraries, including <a href="https://pytorch.org/docs/stable/torchvision/index.html">torchvision</a>, <a href="https://pytorch.org/text/stable/index.html">torchtext</a>, <a href="https://pytorch.org/audio/stable/index.html">torchaudio</a>.</p>
                 
               
               
