@@ -560,6 +560,15 @@
 </tbody>
 </table>
 <h2 id="batch-normalization">Batch Normalization</h2>
+<p>While a good activation function like ReLu or its variants can reduce the vanishing gradient problems, it might still return during later training. in 2015, a technique called <strong>Batch Normalization</strong> avoid this by normalizing and shifting the batch inputs to the mean. Other benefits are as listed.</p>
+<ol>
+<li>Faster convergence</li>
+<li>Decrease initial weights importance</li>
+<li>Robust to hyperparameters</li>
+<li>Requires less data for generalization</li>
+</ol>
+<p>Training will be slower as each epoch takes more than to compute the normalization. However, less epochs are usually required to reach convergence.</p>
+<p>However, the results will not be good if the batch size is very small, since the mean and variance will not be representative of the dataset. Other effects are listed in this <a href="https://towardsdatascience.com/curse-of-batch-normalization-8e6dd20bc304">article</a>.</p>
 <h2 id="dropout">Dropout</h2>
 <p>Dropout is one of the most popular <strong>regularization</strong> techniques for DNN. It is a simple algothrim; for every iteration, it randomly selects neurons to be ignored during training, and thus prevents <strong>overfitting</strong>.</p>
 <figure>
@@ -567,7 +576,7 @@
   <figcaption>Dropout. From the book, Hands-on Machine Learning with Scikit-Learn, and TensorFlow</figcaption>
 </figure>
 
-<p>The hyperparameter is <code>dropout rate</code> usually set to 0.1-0.5, and is placed before a NN layer.</p>
+<p>The hyperparameter is <code>dropout rate</code> usually set to 0.1-0.5, and is placed before a NN layer. Some tricks on adjusting the rate includes:</p>
 <ol>
 <li>Increase the dropout rate if the model is overfitting, and vice  </li>
 <li>It might help to increase the dropout rate for large layers and reduce the smaller ones too. </li>
