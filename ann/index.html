@@ -281,6 +281,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#batch-normalization" class="md-nav__link">
+    Batch Normalization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dropout" class="md-nav__link">
+    Dropout
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -380,6 +394,20 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#batch-normalization" class="md-nav__link">
+    Batch Normalization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dropout" class="md-nav__link">
+    Dropout
+  </a>
   
 </li>
       
@@ -531,6 +559,20 @@
 </tr>
 </tbody>
 </table>
+<h2 id="batch-normalization">Batch Normalization</h2>
+<h2 id="dropout">Dropout</h2>
+<p>Dropout is one of the most popular <strong>regularization</strong> techniques for DNN. It is a simple algothrim; for every iteration, it randomly selects neurons to be ignored during training, and thus prevents <strong>overfitting</strong>.</p>
+<figure>
+  <img src="https://github.com/mapattacker/ai-scientist/blob/master/images/dropout.png?raw=true" width="400" />
+  <figcaption>Dropout. From the book, Hands-on Machine Learning with Scikit-Learn, and TensorFlow</figcaption>
+</figure>
+
+<p>The hyperparameter is <code>dropout rate</code> usually set to 0.1-0.5, and is placed before a NN layer.</p>
+<ol>
+<li>Increase the dropout rate if the model is overfitting, and vice  </li>
+<li>It might help to increase the dropout rate for large layers and reduce the smaller ones too. </li>
+<li>Many SOTA architectures only uses dropout dropout after the last hidden layer, so it might be worth a try if full dropout is too strong</li>
+</ol>
                 
               
               

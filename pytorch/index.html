@@ -266,6 +266,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#modelling" class="md-nav__link">
+    Modelling
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -325,6 +332,13 @@
         <li class="md-nav__item">
   <a href="#data-loader" class="md-nav__link">
     Data Loader
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelling" class="md-nav__link">
+    Modelling
   </a>
   
 </li>
@@ -501,7 +515,16 @@ Device Name: Quadro P1000
 </code></pre></div>
 
 
+<p>An easier way is to use <code>TensorDataset</code> &amp; <code>DataLoader</code>. </p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">TensorDataset</span><span class="p">,</span> <span class="n">DataLoader</span>
+
+<span class="n">iris</span> <span class="o">=</span> <span class="n">TensorDataset</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="n">data</span><span class="p">),</span><span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
+<span class="n">iris_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">105</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+
+
 <p>Pytorch also have another dataset libraries, including <a href="https://pytorch.org/docs/stable/torchvision/index.html">torchvision</a>, <a href="https://pytorch.org/text/stable/index.html">torchtext</a>, <a href="https://pytorch.org/audio/stable/index.html">torchaudio</a>.</p>
+<h2 id="modelling">Modelling</h2>
                 
               
               
