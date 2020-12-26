@@ -560,7 +560,7 @@
 </tbody>
 </table>
 <h2 id="batch-normalization">Batch Normalization</h2>
-<p>While a good activation function like ReLu or its variants can reduce the vanishing gradient problems, it might still return during later training. in 2015, a technique called <strong>Batch Normalization</strong> avoid this by normalizing and shifting the batch inputs to the mean. Other benefits are as listed.</p>
+<p>While a good activation function like ReLu or its variants can reduce the vanishing gradient problems, it might still return during later training. In 2015, a technique called <strong>Batch Normalization</strong> avoid this by normalizing and shifting the batch inputs to the mean. Other benefits are as listed.</p>
 <ol>
 <li>Faster convergence</li>
 <li>Decrease initial weights importance</li>
@@ -576,9 +576,9 @@
   <figcaption>Dropout. From the book, Hands-on Machine Learning with Scikit-Learn, and TensorFlow</figcaption>
 </figure>
 
-<p>The hyperparameter is <code>dropout rate</code> usually set to 0.1-0.5, and is placed before a NN layer. Some tricks on adjusting the rate includes:</p>
+<p>The hyperparameter <code>dropout rate</code> usually set to 0.1-0.5, and is placed before a NN layer. Some tricks on adjusting the rate includes:</p>
 <ol>
-<li>Increase the dropout rate if the model is overfitting, and vice  </li>
+<li>Increase the dropout rate if the model is overfitting, and vice versa  </li>
 <li>It might help to increase the dropout rate for large layers and reduce the smaller ones too. </li>
 <li>Many SOTA architectures only uses dropout dropout after the last hidden layer, so it might be worth a try if full dropout is too strong</li>
 </ol>
