@@ -271,6 +271,19 @@
     Modelling
   </a>
   
+    <nav class="md-nav" aria-label="Modelling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#save-load-predict" class="md-nav__link">
+    Save, Load &amp; Predict
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -340,6 +353,19 @@
   <a href="#modelling" class="md-nav__link">
     Modelling
   </a>
+  
+    <nav class="md-nav" aria-label="Modelling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#save-load-predict" class="md-nav__link">
+    Save, Load &amp; Predict
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -525,6 +551,83 @@ Device Name: Quadro P1000
 
 <p>Pytorch also have another dataset libraries, including <a href="https://pytorch.org/docs/stable/torchvision/index.html">torchvision</a>, <a href="https://pytorch.org/text/stable/index.html">torchtext</a>, <a href="https://pytorch.org/audio/stable/index.html">torchaudio</a>.</p>
 <h2 id="modelling">Modelling</h2>
+<p>To build the model architecture, we need to assign it within a class, with the <code>__init__</code> with the layers, and <code>forward</code> with the activation functions.</p>
+<p>We then initiate the model, and define the loss function &amp; optimizer.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+
+<span class="k">class</span> <span class="nc">Model</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_features</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">h1</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">h2</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">out_features</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>                      <span class="c1"># initiate nn.Module</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">in_features</span><span class="p">,</span><span class="n">h1</span><span class="p">)</span>    <span class="c1"># input layer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">h1</span><span class="p">,</span> <span class="n">h2</span><span class="p">)</span>            <span class="c1"># hidden layer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">out</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">h2</span><span class="p">,</span> <span class="n">out_features</span><span class="p">)</span>  <span class="c1"># output layer</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">out</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span>
+
+<span class="c1"># Instantiate model class</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>   <span class="c1"># so that initial weight &amp; bias are same</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">()</span>
+
+<span class="c1"># define loss &amp; optimizer</span>
+<span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+    <span class="c1"># model parameters are the layers&#39; parameters of the NN</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="n">epochs</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">losses</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="n">losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;epoch: </span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s1">2</span><span class="si">}</span><span class="s1">  loss: </span><span class="si">{</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">:</span><span class="s1">10.8f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="c1"># backpropagation</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+</code></pre></div>
+
+
+<p>After training, using the validation set, we evaluate the model to see if there is good generalization.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span> <span class="c1"># not to update gradients</span>
+    <span class="n">y_val</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+</code></pre></div>
+
+
+<h3 id="save-load-predict">Save, Load &amp; Predict</h3>
+<p>We can either save the model only with the learnt paramters, using <code>state_dict</code>, or save both the learnt parameters &amp; model class. Pytorch convention is to save the models with either <code>.pt</code> or <code>.pth</code> format. </p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># save learnt parameters (biases &amp; weights) only, but not model class</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="s1">&#39;best_model.pt&#39;</span><span class="p">)</span>
+<span class="c1"># load</span>
+<span class="n">new_model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">()</span>
+<span class="n">new_model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;IrisDatasetModel.pt&#39;</span><span class="p">))</span>
+<span class="n">new_model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+
+
+<span class="c1"># save parameters &amp; model class</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="s1">&#39;best_model.pt&#39;</span><span class="p">)</span>
+<span class="c1"># load</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;best_model.pt&#39;</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+</code></pre></div>
+
+
+<p>To predict on new data, we will again, use <code>torch.no_grad()</code> and pass in the new data.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">new_data</span><span class="p">))</span> <span class="c1"># model output</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span><span class="o">.</span><span class="n">argmax</span><span class="p">())</span> <span class="c1"># max output</span>
+</code></pre></div>
                 
               
               
