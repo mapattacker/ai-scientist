@@ -275,6 +275,20 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#model-class" class="md-nav__link">
+    Model Class
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#train" class="md-nav__link">
+    Train
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#save-load-predict" class="md-nav__link">
     Save, Load &amp; Predict
   </a>
@@ -356,6 +370,20 @@
   
     <nav class="md-nav" aria-label="Modelling">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model-class" class="md-nav__link">
+    Model Class
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#train" class="md-nav__link">
+    Train
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#save-load-predict" class="md-nav__link">
@@ -551,6 +579,7 @@ Device Name: Quadro P1000
 
 <p>Pytorch also have another dataset libraries, including <a href="https://pytorch.org/docs/stable/torchvision/index.html">torchvision</a>, <a href="https://pytorch.org/text/stable/index.html">torchtext</a>, <a href="https://pytorch.org/audio/stable/index.html">torchaudio</a>.</p>
 <h2 id="modelling">Modelling</h2>
+<h3 id="model-class">Model Class</h3>
 <p>To build the model architecture, we need to assign it within a class, with the <code>__init__</code> with the layers, and <code>forward</code> with the activation functions.</p>
 <p>We then initiate the model, and define the loss function &amp; optimizer.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">torch</span>
@@ -581,6 +610,8 @@ Device Name: Quadro P1000
 </code></pre></div>
 
 
+<h3 id="train">Train</h3>
+<p>To train the model, we need to iterate the number of epochs, do a feed forward pass, then followed by a back-propagation. In Pytorch, we need to set the gradients to zero for each epoch <code>optimizer.zero_grad()</code> as it accumulates the gradients on each pass. </p>
 <div class="codehilite"><pre><span></span><code><span class="n">epochs</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">losses</span> <span class="o">=</span> <span class="p">[]</span>
 
