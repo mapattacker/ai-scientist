@@ -408,7 +408,12 @@
 <h2 id="feature-selection">Feature Selection</h2>
 <h3 id="convolution">Convolution</h3>
 <p>The convolution layer extracts features from the image using <strong>kernels</strong> or filters. A kernel is a matrix of 2D numbers. The process of <strong>convolution </strong> is done by shifting the kernel over the image by <strong>strides</strong> (no. of pixel per shift), and computing the new value (<a href="https://setosa.io/ev/image-kernels/">see</a> this great explanation). Different kernels can accentuate various features, like edge detection, sharpening or blurring.</p>
-<p>The convoluted layer is then passed to a ReLu activation function. The final output is called a <strong>feature map</strong>.</p>
+<p>The convoluted layer is then passed to a ReLu activation function. The final output is called a <strong>feature map</strong>. In reality, a convulational layer has mutiple filters, and it outputs one feature map per filter.</p>
+<figure>
+  <img src="https://github.com/mapattacker/ai-scientist/blob/master/images/cnn2.png?raw=true" width="600" />
+  <figcaption>A basic CNN architecture. <a href="https://medium.com/@RaghavPrabhu/understanding-of-convolutional-neural-network-cnn-deep-learning-99760835f148">Source</a></figcaption>
+</figure>
+
 <h3 id="pooling">Pooling</h3>
 <p>The pooling layer reduces the dimensions of the feature, while retaining the important information. There are different spatial pooling techniques like Max Pooling, Average Pooling or Sum Pooling.</p>
 <h2 id="classification">Classification</h2>
@@ -432,7 +437,7 @@
 <td>No</td>
 </tr>
 <tr>
-<td>CoCo</td>
+<td>COCO</td>
 <td>Microsoft</td>
 <td>Yes</td>
 </tr>
