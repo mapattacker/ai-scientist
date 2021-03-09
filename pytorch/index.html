@@ -214,10 +214,35 @@
       
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+    <label class="md-nav__link" for="nav-3">
+      Architectures
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Architectures" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Architectures
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
     <a href="../cnn/" class="md-nav__link">
       CNN
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -309,6 +334,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inference-optimization" class="md-nav__link">
+    Inference Optimization
+  </a>
   
 </li>
       
@@ -406,6 +438,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inference-optimization" class="md-nav__link">
+    Inference Optimization
+  </a>
   
 </li>
       
@@ -671,6 +710,10 @@ Device Name: Quadro P1000
     <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">new_data</span><span class="p">))</span> <span class="c1"># model output</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span><span class="o">.</span><span class="n">argmax</span><span class="p">())</span> <span class="c1"># max output</span>
 </code></pre></div>
+
+
+<h2 id="inference-optimization">Inference Optimization</h2>
+<p>This Pytorch <a href="https://pytorch.org/tutorials/recipes/recipes/tuning_guide.html">guide</a> provides several tips to optimize trained models' inference time. </p>
                 
               
               
