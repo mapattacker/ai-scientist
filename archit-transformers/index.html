@@ -484,17 +484,18 @@
                 
                 
                 <h1 id="transformers">Transformers</h1>
-<p>Transformer, an attention mechanism that learns contextual relations between words (or sub-words) in a text. In its vanilla form, Transformer includes two separate mechanisms — an encoder that reads the text input and a decoder that produces a prediction for the task. </p>
+<p>Transformer, an attention mechanism that learns contextual relations between words (or sub-words) in a text. In its vanilla form, Transformer includes two separate mechanisms — an encoder that reads the text input and a decoder that produces a prediction for the task. It uses attention to boost the speed with which these models can be trained.</p>
 <h2 id="history">History</h2>
 <figure>
   <img src="https://github.com/mapattacker/ai-scientist/blob/master/images/transformer-history.png?raw=true" width="100%" />
-  <figcaption>Transformers' history. Y-axis is the no. of parameters. <a href="https://medium.com/huggingface/distilbert-8cf3380435b5">Source</a></figcaption>
+  <figcaption>Advancements in NLP. Y-axis is the no. of parameters. <a href="https://medium.com/huggingface/distilbert-8cf3380435b5">Source</a></figcaption>
 </figure>
 
-<p>https://jalammar.github.io/illustrated-transformer/</p>
+<p><a href="https://jalammar.github.io/illustrated-transformer/">More</a> on transformers.</p>
 <h2 id="bert">Bert</h2>
 <p>BERT or Bidirectional Encoder Representations from Transformers was introduced by Google in 2019. Its key technical innovation is applying the bidirectional training of Transformer, a popular attention model, to language modelling.</p>
 <p>BERT is pretrained on BookCorpus, a dataset consisting of 11,038 unpublished books and English Wikipedia (excluding lists, tables and headers).</p>
+<p><a href="http://jalammar.github.io/illustrated-bert/">More</a> on BERT.</p>
 <h2 id="distilbert">DistilBert</h2>
 <p>DistilBert is a light-weight version of Bert, developed by HuggingFace. It is faster; can run 60% faster than BERT, and smaller; able to retain more than 95% of the performance while having 40% fewer parameters.</p>
 <p>It uses a model optimization technique called (knowledge) distillation, where a large model, called the teacher, is compressed into a smaller model, called the student.</p>
