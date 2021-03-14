@@ -14,7 +14,7 @@
     
     
       
-        <title>CNN - AI Scientist Guide</title>
+        <title>Transformers - AI Scientist Guide</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cnn" class="md-skip">
+        <a href="#transformers" class="md-skip">
           Skip to content
         </a>
       
@@ -91,7 +91,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              CNN
+              Transformers
             
           </span>
         </div>
@@ -296,6 +296,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../archit-cnn/" class="md-nav__link">
+      CNN
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -307,12 +319,12 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        CNN
+        Transformers
         <span class="md-nav__icon md-icon"></span>
       </label>
     
     <a href="./" class="md-nav__link md-nav__link--active">
-      CNN
+      Transformers
     </a>
     
       
@@ -329,42 +341,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#feature-selection" class="md-nav__link">
-    Feature Selection
-  </a>
-  
-    <nav class="md-nav" aria-label="Feature Selection">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#convolution" class="md-nav__link">
-    Convolution
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pooling" class="md-nav__link">
-    Pooling
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#classification" class="md-nav__link">
-    Classification
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#datasets" class="md-nav__link">
-    Datasets
+  <a href="#distilbert" class="md-nav__link">
+    DistilBert
   </a>
   
 </li>
@@ -454,42 +432,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#feature-selection" class="md-nav__link">
-    Feature Selection
-  </a>
-  
-    <nav class="md-nav" aria-label="Feature Selection">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#convolution" class="md-nav__link">
-    Convolution
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pooling" class="md-nav__link">
-    Pooling
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#classification" class="md-nav__link">
-    Classification
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#datasets" class="md-nav__link">
-    Datasets
+  <a href="#distilbert" class="md-nav__link">
+    DistilBert
   </a>
   
 </li>
@@ -506,56 +450,19 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/mapattacker/ai-scientist/edit/master/docs/cnn.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/mapattacker/ai-scientist/edit/master/docs/archit-transformers.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="cnn">CNN</h1>
-<p>Convolutional Neural Networks (CNN) is a neural network architecture used mainly for image classification or object detection.</p>
+                <h1 id="transformers">Transformers</h1>
 <figure>
-  <img src="https://github.com/mapattacker/ai-scientist/blob/master/images/cnn.png?raw=true" width="600" />
-  <figcaption>A basic CNN architecture. <a href="https://medium.com/@RaghavPrabhu/understanding-of-convolutional-neural-network-cnn-deep-learning-99760835f148">Source</a></figcaption>
+  <img src="https://github.com/mapattacker/ai-scientist/blob/master/images/transformer-history.png?raw=true" width="600" />
+  <figcaption>Transformers' history<a href="https://medium.com/huggingface/distilbert-8cf3380435b5">Source</a></figcaption>
 </figure>
 
-<h2 id="feature-selection">Feature Selection</h2>
-<h3 id="convolution">Convolution</h3>
-<p>The convolution layer extracts features from the image using <strong>kernels</strong> or filters. A kernel is a matrix of 2D numbers. The process of <strong>convolution </strong> is done by shifting the kernel over the image by <strong>strides</strong> (no. of pixel per shift), and computing the new value (<a href="https://setosa.io/ev/image-kernels/">see</a> this great explanation). A strike of more than 1 reduces the dimensions of the image. Different kernels can accentuate various features, like edge detection, sharpening or blurring.</p>
-<p>The convoluted layer is then passed to a ReLu activation function. The final output is called a <strong>feature map</strong>. In reality, a convulational layer has mutiple filters, and it outputs one feature map per filter.</p>
-<figure>
-  <img src="https://github.com/mapattacker/ai-scientist/blob/master/images/cnn2.png?raw=true" width="600" />
-  <figcaption>Full basic CNN architecture. <a href="https://medium.com/@RaghavPrabhu/understanding-of-convolutional-neural-network-cnn-deep-learning-99760835f148">Source</a></figcaption>
-</figure>
-
-<h3 id="pooling">Pooling</h3>
-<p>The pooling layer shrinks the image to reduce the computational load, memory usage, and number of parameters, while retaining the important information. There are different spatial pooling techniques like <strong>Max Pooling</strong> (most common), Average Pooling or Sum Pooling.</p>
-<h2 id="classification">Classification</h2>
-<p>The image matrix is flatten to a vector and feed to a normal linear fully connected network, and with the final layer ending with a <code>softmax</code> activation function.</p>
-<hr>
-
-<h2 id="datasets">Datasets</h2>
-<p>There are various large annotated image datasets that allows model training &amp; benchmarking for image classification, detection, and segmentation. </p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>By</th>
-<th>Segmentation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ImageNet</td>
-<td>Li Fei-Fei, Stanford</td>
-<td>No</td>
-</tr>
-<tr>
-<td>COCO</td>
-<td>Microsoft</td>
-<td>Yes</td>
-</tr>
-</tbody>
-</table>
+<h2 id="distilbert">DistilBert</h2>
+<p>DistilBert is a light-weight version of Bert. It can run 60% faster and smaller than BERT, while able to retain more than 95% of the performance while having 40% fewer parameters.</p>
                 
               
               
@@ -574,7 +481,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../data-timeseries/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../archit-cnn/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -583,7 +490,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Timeseries
+                CNN
               </div>
             </div>
           </a>
