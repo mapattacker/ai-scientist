@@ -287,6 +287,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#embedding" class="md-nav__link">
+    Embedding
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#huggingface" class="md-nav__link">
     HuggingFace
   </a>
@@ -446,6 +453,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#embedding" class="md-nav__link">
+    Embedding
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#huggingface" class="md-nav__link">
     HuggingFace
   </a>
@@ -477,10 +491,29 @@
 <p class="admonition-title">Note</p>
 <p>To use a pretrained model, we also have to use its associated tokenizer so that it splits the text in the same way as the pretraining corpus.</p>
 </div>
+<p>Jay Alammar gave a wonderful visualization using the DistilBert Tokenizer from changing a sentence to their respective words and subwords, and converting into vectors.</p>
 <figure>
   <img src="https://github.com/mapattacker/ai-scientist/blob/master/images/bert-distilbert-tokenizer.png
 ?raw=true" width="100%" />
   <figcaption>DistilBert Tokenization. <a href="https://jalammar.github.io/a-visual-guide-to-using-bert-for-the-first-time/">Source</a></figcaption>
+</figure>
+
+<p>In a table or dataframe, they look like this.</p>
+<figure>
+  <img src="https://github.com/mapattacker/ai-scientist/blob/master/images/bert-distilbert-tokenizer.png
+?raw=true" width="100%" />
+  <figcaption>Table representation of tokenization. <a href="https://jalammar.github.io/a-visual-guide-to-using-bert-for-the-first-time/">Source</a></figcaption>
+</figure>
+
+<h2 id="embedding">Embedding</h2>
+<div class="codehilite"><pre><span></span><code><span class="p">[</span> <span class="mf">0.50451</span> <span class="p">,</span> <span class="mf">0.68607</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.59517</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.022801</span><span class="p">,</span> <span class="mf">0.60046</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.13498</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.08813</span> <span class="p">,</span> <span class="mf">0.47377</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.61798</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.31012</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.076666</span><span class="p">,</span> <span class="mf">1.493</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.034189</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.98173</span> <span class="p">,</span> <span class="mf">0.68229</span> <span class="p">,</span> <span class="mf">0.81722</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.51874</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.31503</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.55809</span> <span class="p">,</span> <span class="mf">0.66421</span> <span class="p">,</span> <span class="mf">0.1961</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.13495</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.11476</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.30344</span> <span class="p">,</span> <span class="mf">0.41177</span> <span class="p">,</span> <span class="o">-</span><span class="mf">2.223</span> <span class="p">,</span> <span class="o">-</span><span class="mf">1.0756</span> <span class="p">,</span> <span class="o">-</span><span class="mf">1.0783</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.34354</span> <span class="p">,</span> <span class="mf">0.33505</span> <span class="p">,</span> <span class="mf">1.9927</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.04234</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.64319</span> <span class="p">,</span> <span class="mf">0.71125</span> <span class="p">,</span> <span class="mf">0.49159</span> <span class="p">,</span> <span class="mf">0.16754</span> <span class="p">,</span> <span class="mf">0.34344</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.25663</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.8523</span> <span class="p">,</span> <span class="mf">0.1661</span> <span class="p">,</span> <span class="mf">0.40102</span> <span class="p">,</span> <span class="mf">1.1685</span> <span class="p">,</span> <span class="o">-</span><span class="mf">1.0137</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.21585</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.15155</span> <span class="p">,</span> <span class="mf">0.78321</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.91241</span> <span class="p">,</span> <span class="o">-</span><span class="mf">1.6106</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.64426</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.51042</span> <span class="p">]</span> 
+</code></pre></div>
+
+
+<figure>
+  <img src="https://github.com/mapattacker/ai-scientist/blob/master/images/bert-distilbert-tokenizer.png
+?raw=true" width="100%" />
+  <figcaption>King-Man-Woman of word embedding. <a href="http://jalammar.github.io/illustrated-word2vec/">Source</a></figcaption>
 </figure>
 
 <h2 id="huggingface">HuggingFace</h2>
