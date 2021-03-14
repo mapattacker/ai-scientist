@@ -460,13 +460,13 @@
                 <h1 id="naural-language">Naural Language</h1>
 <p>Natural Language Processing (NLP) is to train a model to recognize and interpret languages.</p>
 <h2 id="tokenizing">Tokenizing</h2>
-<p>An essential step of preprocessing natural language is to tokenize a text. This is a feature extraction process to output a list of word or words.</p>
+<p>An essential step of preprocessing natural language is to tokenize a text. This is a feature extraction technique to break a sentence into a list of words, word, subword, or character. See this <a href="https://www.analyticsvidhya.com/blog/2020/05/what-is-tokenization-nlp/">article</a> by Analytics Vidhya for a more detail explanation.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>To use a pretrained model, we also have to use its associated tokenizer so that it splits the text in the same way as the pretraining corpus.</p>
 </div>
 <h2 id="hugging-face">Hugging Face</h2>
-<p><a href="https://huggingface.co/">Hugging face</a> has become the defacto site for NLP modelling with neural networks, amassing a wide variety of SOTA NN architectures, and an easy to use API that is integrated with Pytorch and Tensorflow.</p>
+<p><a href="https://huggingface.co/">Hugging face</a> has become the defacto site for NLP modelling with neural networks, amassing a wide variety of SOTA transformer architectures, and an easy to use API that is integrated with Pytorch and Tensorflow.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">DistilBertTokenizerFast</span>
 <span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">TFDistilBertForSequenceClassification</span>
 <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
