@@ -534,6 +534,7 @@
 <p><a href="https://jalammar.github.io/illustrated-transformer/">More</a> on transformers.</p>
 <h2 id="bert">Bert</h2>
 <p>BERT or Bidirectional Encoder Representations from Transformers was introduced by Google in 2019. Its key technical innovation is applying the bidirectional training of Transformers, to language modelling; called Masked Language Model.</p>
+<p>BERT is pretrained on BookCorpus, a dataset consisting of 11,038 unpublished books and English Wikipedia (excluding lists, tables and headers). It is now used within <a href="https://www.blog.google/products/search/search-language-understanding-bert/">Google Search</a>.</p>
 <h3 id="masked-language-model">Masked Language Model</h3>
 <p>Before feeding word sequences into BERT, 15% of the words in each sequence are replaced with a [MASK] token. The model then attempts to predict the original value of the masked words, based on the context provided by the other, non-masked, words in the sequence.</p>
 <figure>
@@ -541,12 +542,14 @@
   <figcaption>Masked Language Model. <a href="http://jalammar.github.io/illustrated-bert/">Source</a></figcaption>
 </figure>
 
+<p>This is different from traditional recurrent neural networks (RNNs) that usually see the words one after the other, or from autoregressive models like GPT which internally mask the future tokens. It allows the model to learn a bidirectional representation of the sentence.</p>
 <p>In reality, only 80% of the masked tokens are in reality replaced with [MASK]. 10% are actually replaced with a random word while the other 10% uses the original word. See <a href="https://www.lyrn.ai/2018/11/07/explained-bert-state-of-the-art-language-model-for-nlp/#appendix-A">more</a>.</p>
 <h3 id="next-sentence-prediction">Next Sentence Prediction</h3>
-<p>BERT is pretrained on BookCorpus, a dataset consisting of 11,038 unpublished books and English Wikipedia (excluding lists, tables and headers). It is now used within <a href="https://www.blog.google/products/search/search-language-understanding-bert/">Google Search</a>.</p>
+<p>The models concatenates two masked sentences as inputs during pretraining. Sometimes they correspond to sentences that were next to each other in the original text, sometimes not. The model then has to predict if the two sentences were following each other or not.</p>
 <p>More on BERT. <a href="http://jalammar.github.io/illustrated-bert/">1</a>, <a href="https://towardsdatascience.com/bert-explained-state-of-the-art-language-model-for-nlp-f8b21a9b6270">2</a>.</p>
+<p>This way, the model learns an inner representation of the English language that can then be used to extract features useful for downstream tasks: if you have a dataset of labeled sentences for instance, you can train a standard classifier using the features produced by the BERT model as inputs.</p>
 <h2 id="distilbert">DistilBert</h2>
-<p>DistilBert is a light-weight version of Bert, developed by HuggingFace. It is faster; can run 60% faster than BERT, and smaller; able to retain more than 95% of the performance while having 40% fewer parameters.</p>
+<p>DistilBert is a light-weight version of Bert, developed by <a href="https://huggingface.co/">HuggingFace</a>. It is faster; can run 60% faster than BERT, and smaller; able to retain more than 95% of the performance while having 40% fewer parameters.</p>
 <p>It uses a model optimization technique called (knowledge) distillation, where a large model, called the teacher, is compressed into a smaller model, called the student.</p>
                 
               
