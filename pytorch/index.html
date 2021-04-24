@@ -23,10 +23,6 @@
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ef6f36e2.min.css">
         
-          
-          
-          <meta name="theme-color" content="#ef5552">
-        
       
     
     
@@ -49,13 +45,17 @@
   
     
     
+      
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="red" data-md-color-accent="">
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="red">
   
     
     <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -99,6 +99,24 @@
         </div>
       </div>
     </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="red" type="radio" name="__palette" id="__palette_1">
+          <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22z"/></svg>
+          </label>
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="brown" data-md-color-accent="brown" type="radio" name="__palette" id="__palette_2">
+          <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31z"/></svg>
+          </label>
+        
+      </form>
     
     
     
@@ -598,7 +616,7 @@
 <h2 id="tensors">Tensors</h2>
 <p>Tensors are used in place of <code>numpy</code> in Pytorch. This allows faster processing using GPUs.</p>
 <p>If as use <code>torch.as_tensor</code> or <code>torch.tensor</code>, it will infer the datatype from the original array and assign it as such.</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># convert array/list to pytorch tensor, retains a link to the array</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># convert array/list to pytorch tensor, retains a link to the array</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
 <span class="c1"># convert array to tensor, no linkage, just a copy</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
@@ -694,7 +712,7 @@
 <h2 id="gpu">GPU</h2>
 <p>Pytorch is able to use <a href="https://pytorch.org/docs/stable/notes/cuda.html">GPU</a> to accelerate its processing speed. </p>
 <p>We can set cuda by writing an if-else clause. Sometimes, just adding <code>cuda</code> will not work, but we have to specify the device id, i.e. <code>cuda:0</code></p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">torch</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">torch</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;PyTorch Version:&#39;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 
 <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cuda&#39;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
@@ -706,14 +724,14 @@
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Device Name:&#39;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">get_device_name</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code>Number of GPUs: <span class="m">1</span>
+<div class="highlight"><pre><span></span><code>Number of GPUs: <span class="m">1</span>
 Device properties: _CudaDeviceProperties<span class="o">(</span><span class="nv">name</span><span class="o">=</span><span class="s1">&#39;Quadro P1000&#39;</span>, <span class="nv">major</span><span class="o">=</span><span class="m">6</span>, <span class="nv">minor</span><span class="o">=</span><span class="m">1</span>, <span class="nv">total_memory</span><span class="o">=</span>4040MB, <span class="nv">multi_processor_count</span><span class="o">=</span><span class="m">4</span><span class="o">)</span>
 Device ID: <span class="m">0</span>
 Device Name: Quadro P1000
 </code></pre></div>
 
 <p>We can set the model to run in GPU, ideally by placing the device variable <code>model.to(device)</code>.</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># check if using gpu</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># check if using gpu</span>
 <span class="nb">next</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span><span class="o">.</span><span class="n">is_cuda</span>
 <span class="c1"># use gpu</span>
 <span class="n">model</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
@@ -722,7 +740,7 @@ Device Name: Quadro P1000
 </code></pre></div>
 
 <p>We can do the same for the tensors, to specify them to use the GPU.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">])</span>
 <span class="c1"># check if using gpu</span>
 <span class="n">a</span><span class="o">.</span><span class="n">device</span>
 <span class="c1"># use gpu</span>
@@ -733,7 +751,7 @@ Device Name: Quadro P1000
 
 <h2 id="data-loader">Data Loader</h2>
 <p>Here's a more specify example on a train-test split dataset.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">33</span><span class="p">)</span>
 
 <span class="n">X_train</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
@@ -743,7 +761,7 @@ Device Name: Quadro P1000
 </code></pre></div>
 
 <p>An easier way is to use <code>TensorDataset</code> &amp; <code>DataLoader</code>. </p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">TensorDataset</span><span class="p">,</span> <span class="n">DataLoader</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">TensorDataset</span><span class="p">,</span> <span class="n">DataLoader</span>
 
 <span class="n">iris</span> <span class="o">=</span> <span class="n">TensorDataset</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="n">data</span><span class="p">),</span><span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
 <span class="n">iris_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">105</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -754,7 +772,7 @@ Device Name: Quadro P1000
 <h3 id="model-class">Model Class</h3>
 <p>To build the model architecture, we need to assign it within a class, with the <code>__init__</code> with the layers, and <code>forward</code> with the activation functions.</p>
 <p>We then initiate the model, and define the loss function &amp; optimizer.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">torch</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 <span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
 
@@ -783,7 +801,7 @@ Device Name: Quadro P1000
 
 <h3 id="train">Train</h3>
 <p>To train the model, we need to iterate the number of epochs, do a feed forward pass, then followed by a back-propagation. In Pytorch, we need to set the gradients to zero for each epoch <code>optimizer.zero_grad()</code> as it accumulates the gradients on each pass. </p>
-<div class="codehilite"><pre><span></span><code><span class="n">epochs</span> <span class="o">=</span> <span class="mi">100</span>
+<div class="highlight"><pre><span></span><code><span class="n">epochs</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">losses</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
@@ -800,7 +818,7 @@ Device Name: Quadro P1000
 </code></pre></div>
 
 <p>After training, using the validation set, we evaluate the model to see if there is good generalization.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span> <span class="c1"># not to update gradients</span>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span> <span class="c1"># not to update gradients</span>
     <span class="n">y_val</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
     <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
@@ -808,7 +826,7 @@ Device Name: Quadro P1000
 
 <h3 id="save-load-predict">Save, Load &amp; Predict</h3>
 <p>We can either save the model only with the learnt paramters, using <code>state_dict</code>, or save both the learnt parameters &amp; model class. Pytorch convention is to save the models with either <code>.pt</code> or <code>.pth</code> format. </p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># save learnt parameters (biases &amp; weights) only, but not model class</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># save learnt parameters (biases &amp; weights) only, but not model class</span>
 <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="s1">&#39;best_model.pt&#39;</span><span class="p">)</span>
 <span class="c1"># load</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">()</span>
@@ -822,7 +840,7 @@ Device Name: Quadro P1000
 </code></pre></div>
 
 <p>To predict on new data, we need to first switch to evaluate mode <code>mode.eval()</code> so that dropout and batch normalization layers are turned off. Then we will again, use <code>torch.no_grad()</code> and pass in the new data.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
 <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">new_data</span><span class="p">))</span> <span class="c1"># model output</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span><span class="o">.</span><span class="n">argmax</span><span class="p">())</span> <span class="c1"># max output</span>
