@@ -2,19 +2,45 @@ site_name: AI Scientist Guide
 theme:
     name: 'material'
     palette:
-        primary: 'red'
+      # Light mode
+      - media: "(prefers-color-scheme: light)"
+        scheme: default
+        primary: red
+        accent: red
+        toggle:
+          icon: material/weather-sunny
+          name: Switch to dark mode
+      # Dark mode
+      - media: "(prefers-color-scheme: dark)"
+        scheme: slate
+        primary: brown
+        accent: brown
+        toggle:
+          icon: material/weather-night
+          name: Switch to light mode
 
 nav:
     - Introduction: index.md
-    - Artificial Neural Networks: ann.md
-    - Pytorch: pytorch.md
+    - Basics: ann.md
+    - Data Processing:
+      - Image: data-images.md
+      - Natural Language: data-nlp.md
+      - Time Series: data-timeseries.md
+    - Architectures:
+      - CNN: archit-cnn.md
+      - Transformers: archit-transformers.md
+    - Frameworks:
+      - Pytorch: pytorch.md
+      - Keras: keras.md
 
 repo_name: mapattacker/ai-scientist
 repo_url: https://github.com/mapattacker/ai-scientist
 
 markdown_extensions:
-    - codehilite
+    - pymdownx.highlight
+    - pymdownx.superfences
     - attr_list
+    - admonition
     - pymdownx.emoji:
         emoji_index: !!python/name:materialx.emoji.twemoji
         emoji_generator: !!python/name:materialx.emoji.to_svg
