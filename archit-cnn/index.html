@@ -631,16 +631,18 @@
 </tbody>
 </table>
 <h2 id="evaluation">Evaluation</h2>
-<p>For object detection (localisation &amp; classification), <strong>mAP</strong> (Mean Average Precision) is often used. It is calculated by taking the mean AP over all classes and/or overall <strong>IoU</strong> thresholds, depending on different detection challenges that exist.</p>
+<p>For object detection (localisation &amp; classification), <strong>mAP</strong> (Mean Average Precision) is often used. This in large part is determined by the IoU thresholds, as depicted below.</p>
 <figure>
-  <img src="https://github.com/mapattacker/ai-scientist/blob/master/images/map1.png?raw=true" width="600" />
+  <img src="https://github.com/mapattacker/ai-scientist/blob/master/images/map1.png?raw=true"/>
   <figcaption><a href="https://towardsdatascience.com/map-mean-average-precision-might-confuse-you-5956f1bfa9e2">Source</a></figcaption>
 </figure>
 
 <figure>
-  <img src="https://github.com/mapattacker/ai-scientist/blob/master/images/map2.jpeg?raw=true" width="600" />
+  <img src="https://github.com/mapattacker/ai-scientist/blob/master/images/map2.jpeg?raw=true"/>
   <figcaption><a href="https://towardsdatascience.com/map-mean-average-precision-might-confuse-you-5956f1bfa9e2">Source</a></figcaption>
 </figure>
+
+<p>mAP is calculated by taking the mean AP over all classes and/or overall <strong>IoU</strong> thresholds, depending on different detection challenges that exist.</p>
                 
               
               
