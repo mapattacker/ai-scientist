@@ -602,7 +602,6 @@
 <span class="o">-</span><span class="mf">0.25663</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.8523</span> <span class="p">,</span> <span class="mf">0.1661</span> <span class="p">,</span> <span class="mf">0.40102</span> <span class="p">,</span> <span class="mf">1.1685</span> <span class="p">,</span> <span class="o">-</span><span class="mf">1.0137</span> <span class="p">,</span> 
 <span class="o">-</span><span class="mf">0.21585</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.15155</span> <span class="p">,</span> <span class="mf">0.78321</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.91241</span> <span class="p">,</span> <span class="o">-</span><span class="mf">1.6106</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.64426</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.51042</span> <span class="p">]</span> 
 </code></pre></div>
-
 <p>We can visualize these list of floats into a heatmap, and compare with two other words, "man" and "woman". It shows that the latter two are more similar to each other, thus showing that embeddings can capture information/meaning/associations of the words.</p>
 <figure>
   <img src="https://github.com/mapattacker/ai-scientist/blob/master/images/nlp-king-man-woman-embedding.png
@@ -621,7 +620,6 @@
 <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">DistilBertTokenizerFast</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_nm</span><span class="p">)</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">TFDistilBertForSequenceClassification</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_nm</span><span class="p">,</span> <span class="n">num_labels</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
-
 <h3 id="_1"></h3>
 <p><a href="https://spacy.io">spaCy</a> is a popular general-use NLP library.</p>
                 

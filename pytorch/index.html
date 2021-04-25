@@ -624,7 +624,6 @@
 <span class="n">x</span><span class="o">.</span><span class="n">dtype</span>
 <span class="o">...</span><span class="n">torch</span><span class="o">.</span><span class="n">int32</span>
 </code></pre></div>
-
 <p>If we want to convert the tensor to specific datatypes, we can refer to the <a href="https://pytorch.org/docs/stable/tensors.html">table</a> below.</p>
 <table>
 <thead>
@@ -723,13 +722,11 @@
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Device ID:&#39;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">current_device</span><span class="p">())</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Device Name:&#39;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">get_device_name</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code>Number of GPUs: <span class="m">1</span>
 Device properties: _CudaDeviceProperties<span class="o">(</span><span class="nv">name</span><span class="o">=</span><span class="s1">&#39;Quadro P1000&#39;</span>, <span class="nv">major</span><span class="o">=</span><span class="m">6</span>, <span class="nv">minor</span><span class="o">=</span><span class="m">1</span>, <span class="nv">total_memory</span><span class="o">=</span>4040MB, <span class="nv">multi_processor_count</span><span class="o">=</span><span class="m">4</span><span class="o">)</span>
 Device ID: <span class="m">0</span>
 Device Name: Quadro P1000
 </code></pre></div>
-
 <p>We can set the model to run in GPU, ideally by placing the device variable <code>model.to(device)</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># check if using gpu</span>
 <span class="nb">next</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span><span class="o">.</span><span class="n">is_cuda</span>
@@ -738,7 +735,6 @@ Device Name: Quadro P1000
 <span class="c1"># or</span>
 <span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
 </code></pre></div>
-
 <p>We can do the same for the tensors, to specify them to use the GPU.</p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">])</span>
 <span class="c1"># check if using gpu</span>
@@ -748,7 +744,6 @@ Device Name: Quadro P1000
 <span class="c1"># or</span>
 <span class="n">a</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
 </code></pre></div>
-
 <h2 id="data-loader">Data Loader</h2>
 <p>Here's a more specify example on a train-test split dataset.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
@@ -759,14 +754,12 @@ Device Name: Quadro P1000
 <span class="n">y_train</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
 <span class="n">y_test</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
 </code></pre></div>
-
 <p>An easier way is to use <code>TensorDataset</code> &amp; <code>DataLoader</code>. </p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">TensorDataset</span><span class="p">,</span> <span class="n">DataLoader</span>
 
 <span class="n">iris</span> <span class="o">=</span> <span class="n">TensorDataset</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="n">data</span><span class="p">),</span><span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
 <span class="n">iris_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">105</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
-
 <p>Pytorch also have another dataset libraries, including <a href="https://pytorch.org/docs/stable/torchvision/index.html">torchvision</a>, <a href="https://pytorch.org/text/stable/index.html">torchtext</a>, <a href="https://pytorch.org/audio/stable/index.html">torchaudio</a>.</p>
 <h2 id="modelling">Modelling</h2>
 <h3 id="model-class">Model Class</h3>
@@ -798,7 +791,6 @@ Device Name: Quadro P1000
     <span class="c1"># model parameters are the layers&#39; parameters of the NN</span>
 <span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
 </code></pre></div>
-
 <h3 id="train">Train</h3>
 <p>To train the model, we need to iterate the number of epochs, do a feed forward pass, then followed by a back-propagation. In Pytorch, we need to set the gradients to zero for each epoch <code>optimizer.zero_grad()</code> as it accumulates the gradients on each pass. </p>
 <div class="highlight"><pre><span></span><code><span class="n">epochs</span> <span class="o">=</span> <span class="mi">100</span>
@@ -816,14 +808,12 @@ Device Name: Quadro P1000
     <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
     <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
 </code></pre></div>
-
 <p>After training, using the validation set, we evaluate the model to see if there is good generalization.</p>
 <div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span> <span class="c1"># not to update gradients</span>
     <span class="n">y_val</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
     <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
 </code></pre></div>
-
 <h3 id="save-load-predict">Save, Load &amp; Predict</h3>
 <p>We can either save the model only with the learnt paramters, using <code>state_dict</code>, or save both the learnt parameters &amp; model class. Pytorch convention is to save the models with either <code>.pt</code> or <code>.pth</code> format. </p>
 <div class="highlight"><pre><span></span><code><span class="c1"># save learnt parameters (biases &amp; weights) only, but not model class</span>
@@ -838,14 +828,12 @@ Device Name: Quadro P1000
 <span class="c1"># load</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;best_model.pt&#39;</span><span class="p">)</span>
 </code></pre></div>
-
 <p>To predict on new data, we need to first switch to evaluate mode <code>mode.eval()</code> so that dropout and batch normalization layers are turned off. Then we will again, use <code>torch.no_grad()</code> and pass in the new data.</p>
 <div class="highlight"><pre><span></span><code><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
 <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">new_data</span><span class="p">))</span> <span class="c1"># model output</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span><span class="o">.</span><span class="n">argmax</span><span class="p">())</span> <span class="c1"># max output</span>
 </code></pre></div>
-
 <h2 id="inference-optimization">Inference Optimization</h2>
 <p>This Pytorch <a href="https://pytorch.org/tutorials/recipes/recipes/tuning_guide.html">guide</a> provides several tips to optimize trained models' inference time. </p>
                 
